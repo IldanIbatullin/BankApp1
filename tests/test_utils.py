@@ -1,45 +1,33 @@
-# test_utils.py
-import unittest
-from unittest.mock import mock_open, patch
-from utils import load_transactions
+import os.path
+
+import pytest
+from src.utils import load_json_file
+import json
+
+def test_load_json_file(transactions_from_to):
+    """работа функцмм"""
+    try:
+        with open("test.json","w",encoding="utf-8") as file:
+            json.dump(transactions_from_to,file,indent=4,ensure_ascii=False)
+
+        assert load_json_file("test.json") == transactions_from_to
+    finally:
+        if os.path.exists("test.json"):
+            os.remove("test.json")
 
 
-class TestLoadTransactions(unittest.TestCase):
-
-    @patch("builtins.open", new_callable=mock_open, read_data="[]")
-    def test_load_empty_list(self, mock_file):
-        """Тест загрузки пустого списка."""
-        result = load_transactions("dummy_path.json")
-        self.assertEqual(result, [])
-        mock_file.assert_called_once_with("dummy_path.json", encoding="utf-8")
-
-    @patch("builtins.open", new_callable=mock_open, read_data='{"key": "value"}')
-    def test_load_invalid_json(self, mock_file):
-        """Тест загрузки некорректного JSON."""
-        with self.assertRaises(ValueError):
-            load_transactions("dummy_path.json")
-        mock_file.assert_called_once_with("dummy_path.json", encoding="utf-8")
-
-    @patch("os.path.exists", return_value=True)
-    @patch(
-        "builtins.open",
-        new_callable=mock_open,
-        read_data='[{"operationAmount": {"amount": "100", "currency": {"code": "USD"}}}]',
-    )
-    def test_load_valid_json(self, mock_file, mock_exists):
-        """Тест загрузки корректного JSON."""
-        result = load_transactions("dummy_path.json")
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["operationAmount"]["amount"], "100")
-        self.assertEqual(result[0]["operationAmount"]["currency"]["code"], "USD")
-        mock_file.assert_called_once_with("dummy_path.json", encoding="utf-8")
-
-    @patch("os.path.exists", return_value=False)
-    def test_file_not_found(self, mock_exists):
-        """Тест на случай, если файл не найден."""
-        with self.assertRaises(FileNotFoundError):
-            load_transactions("dummy_path.json")
+def test_load_json_file_non_existent_file():
+    """тест если файл не найден"""
+    assert load_json_file("non.json") == []
 
 
-if __name__ == "__main__":
-    unittest.main()
+def test_load_json_file_invalid_json():
+    """Файл с неккоректными данными"""
+    try:
+        with open("test.json","w",encoding="utf-8") as file:
+            file.write("Error")
+
+        assert load_json_file("test.json") == []
+    finally:
+        if os.path.exists("test.json"):
+            os.remove("test.json")
