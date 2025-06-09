@@ -1,0 +1,16 @@
+2025-06-06 00:54:25,433 - masks: get_mask_card_number - INFO: Функция начата
+2025-06-06 00:54:25,434 - masks: get_mask_card_number - INFO: Функция завершена успешно
+2025-06-06 00:54:25,437 - masks: get_mask_card_number - INFO: Функция начата
+2025-06-06 00:54:25,437 - masks: get_mask_card_number - INFO: Функция завершена успешно
+2025-06-06 00:54:25,438 - masks: get_mask_card_number - INFO: Функция начата
+2025-06-06 00:54:25,438 - masks: get_mask_card_number - INFO: Функция завершена успешно
+2025-06-06 00:54:25,439 - masks: get_mask_card_number - INFO: Функция начата
+2025-06-06 00:54:25,439 - masks: get_mask_card_number - ERROR: Неправильное количество цифр
+2025-06-06 00:54:25,439 - masks: get_mask_card_number - INFO: Функция начата
+2025-06-06 00:54:25,439 - masks: get_mask_card_number - ERROR: Неверный формат номера карты
+2025-06-06 00:54:25,441 - masks: get_mask_account - INFO: Функция начата
+2025-06-06 00:54:25,441 - masks: get_mask_account - INFO: Функция завершена успешно
+2025-06-06 00:54:25,443 - masks: get_mask_account - INFO: Функция начата
+2025-06-06 00:54:25,443 - masks: get_mask_account - ERROR: Неправильное количество цифр
+2025-06-06 00:54:25,444 - masks: get_mask_account - INFO: Функция начата
+2025-06-06 00:54:25,444 - masks: get_mask_account - ERROR: Неправильное количество цифр

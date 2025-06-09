@@ -5,15 +5,16 @@ import os
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-log_file = BASE_DIR/"logs"/"utils.log"
-log_file.parent.mkdir(parents=True,exist_ok=True)
+log_file = BASE_DIR / "logs" / "utils.log"
+log_file.parent.mkdir(parents=True, exist_ok=True)
 
 utils_logger = logging.getLogger("utils")
-file_handler = logging.FileHandler(log_file,mode="w", encoding="UTF-8")
-file_formatter = logging.Formatter('%(asctime)s - %(name)s: %(funcName)s - %(levelname)s: %(message)s')
+file_handler = logging.FileHandler(log_file, mode="w", encoding="UTF-8")
+file_formatter = logging.Formatter("%(asctime)s - %(name)s: %(funcName)s - %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 utils_logger.addHandler(file_handler)
 utils_logger.setLevel(logging.DEBUG)
+
 
 def load_json_file(file_path):
     """
@@ -34,7 +35,5 @@ def load_json_file(file_path):
         utils_logger.error(f"Файл не найден: {file_path}. Возвращаем пустой список.")
         return []
     except json.JSONDecodeError:
-        utils_logger.error(
-            f"Ошибка декодирования JSON в файле: {file_path}. Возвращаем пустой список."
-        )
+        utils_logger.error(f"Ошибка декодирования JSON в файле: {file_path}. Возвращаем пустой список.")
         return []

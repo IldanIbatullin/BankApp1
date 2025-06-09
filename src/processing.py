@@ -1,9 +1,7 @@
 from typing import List, Dict
 
 
-def filter_by_state(
-    transactions: List[Dict[str, str]], state: str = "EXECUTED"
-) -> List[Dict[str, str]]:
+def filter_by_state(transactions: List[Dict[str, str]], state: str = "EXECUTED") -> List[Dict[str, str]]:
     """
     Фильтрует список словарей по значению ключа 'state'.
 
@@ -11,14 +9,10 @@ def filter_by_state(
     :param state: Значение состояния для фильтрации (по умолчанию 'EXECUTED').
     :return: Новый список словарей, содержащий только те, которые соответствуют указанному состоянию.
     """
-    return [
-        transaction for transaction in transactions if transaction.get("state") == state
-    ]
+    return [transaction for transaction in transactions if transaction.get("state") == state]
 
 
-def sort_by_date(
-    transactions: List[Dict[str, str]], reverse: bool = True
-) -> List[Dict[str, str]]:
+def sort_by_date(transactions: List[Dict[str, str]], reverse: bool = True) -> List[Dict[str, str]]:
     """
     Сортирует список словарей по дате.
 

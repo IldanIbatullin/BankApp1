@@ -3,15 +3,16 @@ import logging
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-log_file = BASE_DIR/"logs"/"mask.log"
-log_file.parent.mkdir(parents=True,exist_ok=True)
+log_file = BASE_DIR / "logs" / "mask.log"
+log_file.parent.mkdir(parents=True, exist_ok=True)
 
 mask_logger = logging.getLogger("masks")
-file_handler = logging.FileHandler(log_file,mode="w", encoding="UTF-8")
-file_formatter = logging.Formatter('%(asctime)s - %(name)s: %(funcName)s - %(levelname)s: %(message)s')
+file_handler = logging.FileHandler(log_file, mode="w", encoding="UTF-8")
+file_formatter = logging.Formatter("%(asctime)s - %(name)s: %(funcName)s - %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 mask_logger.addHandler(file_handler)
 mask_logger.setLevel(logging.DEBUG)
+
 
 def get_mask_card_number(card_number: str) -> str:
     # Удаляем все символы, кроме цифр
