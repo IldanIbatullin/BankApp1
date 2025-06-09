@@ -1,0 +1,9 @@
+2025-06-06 00:54:25,453 - utils: load_json_file - INFO: Функция начата
+2025-06-06 00:54:25,453 - utils: load_json_file - INFO: Начато преобразование Json файла в обьект Python
+2025-06-06 00:54:25,456 - utils: load_json_file - INFO: Преобразование успешно выполнено
+2025-06-06 00:54:25,458 - utils: load_json_file - INFO: Функция начата
+2025-06-06 00:54:25,458 - utils: load_json_file - INFO: Начато преобразование Json файла в обьект Python
+2025-06-06 00:54:25,458 - utils: load_json_file - ERROR: Файл не найден: non.json. Возвращаем пустой список.
+2025-06-06 00:54:25,459 - utils: load_json_file - INFO: Функция начата
+2025-06-06 00:54:25,461 - utils: load_json_file - INFO: Начато преобразование Json файла в обьект Python
+2025-06-06 00:54:25,470 - utils: load_json_file - ERROR: Ошибка декодирования JSON в файле: test.json. Возвращаем пустой список.

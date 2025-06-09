@@ -1,5 +1,5 @@
 import pytest
-from src.processing import (filter_by_state, sort_by_date)
+from src.processing import filter_by_state, sort_by_date
 
 # Пример данных для тестов
 transactions = [
@@ -18,17 +18,13 @@ def sample_transactions():
 
 # Тесты для filter_by_state
 def test_filter_by_state(sample_transactions):
-    executed_transactions = filter_by_state(sample_transactions, 'EXECUTED')
+    executed_transactions = filter_by_state(sample_transactions, "EXECUTED")
     assert len(executed_transactions) == 3
-    assert all(tx['state'] == 'EXECUTED' for tx in executed_transactions)
+    assert all(tx["state"] == "EXECUTED" for tx in executed_transactions)
 
 
 # Тесты для sort_by_date
 def test_sort_by_date(sample_transactions):
     sorted_transactions = sort_by_date(sample_transactions)
-    assert sorted_transactions[0]['date'] == '2024-12-02'
-    assert sorted_transactions[-1]['date'] == '2024-11-29'
-
-
-
-
+    assert sorted_transactions[0]["date"] == "2024-12-02"
+    assert sorted_transactions[-1]["date"] == "2024-11-29"

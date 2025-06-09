@@ -1,5 +1,7 @@
 import pytest
-from src.widget import (mask_account_card, get_date)
+from src.widget import mask_account_card, get_date
+
+
 # Тесты для mask_account_card (пример)
 def test_mask_account_card():
     # Пример теста для mask_account_card (необходимо адаптировать под вашу реализацию)
